@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import com.ryanb3.ImageToPoly.Display.Display;
 import com.ryanb3.ImageToPoly.Processors.Processor;
+import com.ryanb3.SelfUpdatingJava.Update;
 
 public class Main {
 
@@ -19,8 +20,16 @@ public class Main {
 	private int width;
 	private int height;
 	Display toDisplay;
-	
+	String currentVersion = "1.0";
 	public Main() {
+		try {
+			System.out.println("Suces");
+			new Update("http://rbradford.thaumavor.io/jars/ImageToPoly/", "ImageToPoly", "index.txt", currentVersion);
+			System.out.println("Sucess");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		JFileChooser fileChoose = new JFileChooser();
 		fileChoose.showOpenDialog(null);
 		File imageLocation = fileChoose.getSelectedFile();
