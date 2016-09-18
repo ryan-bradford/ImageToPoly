@@ -1,10 +1,12 @@
 package com.ryanb3.ImageToPoly;
 
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -21,30 +23,34 @@ public class Main {
 	private int height;
 	Display toDisplay;
 	String currentVersion = "1.0";
-	public Main() {
+
+	public Main() throws InvocationTargetException, InterruptedException {
 		try {
-			System.out.println("Suces");
 			new Update("http://rbradford.thaumavor.io/jars/ImageToPoly/", "ImageToPoly", "index.txt", currentVersion);
-			System.out.println("Sucess");
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		JFileChooser fileChoose = new JFileChooser();
-		fileChoose.showOpenDialog(null);
-		File imageLocation = fileChoose.getSelectedFile();
-		try {
-			toUse = ImageIO.read(imageLocation);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		EventQueue.invokeAndWait(new Runnable() {
+			@Override
+			public void run() {
+				JFileChooser fileChoose = new JFileChooser();
+				fileChoose.showOpenDialog(null);
+				File imageLocation = fileChoose.getSelectedFile();
+				try {
+					toUse = ImageIO.read(imageLocation);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		width = toUse.getWidth(null);
 		height = toUse.getHeight(null);
-		//initDisplay();
-		Processor toProcess = new Processor(width, height, toUse, toDisplay, fileChoose);
+		// initDisplay();
+		Processor toProcess = new Processor(width, height, toUse, toDisplay);
 	}
-	
+
 	public void initDisplay() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		toDisplay = new Display(toUse, width, height, screenSize.width, screenSize.height);
@@ -53,5 +59,5 @@ public class Main {
 		toDisplay.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		toDisplay.setVisible(true);
 	}
-	
+
 }

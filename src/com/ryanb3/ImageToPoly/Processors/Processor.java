@@ -17,7 +17,7 @@ public class Processor {
 	Polygon[] polys;
 	int radius = 15;
 	
-	public Processor(int width, int height, Image toUse, Display testDisplay, JFileChooser fileChoose) {
+	public Processor(int width, int height, Image toUse, Display testDisplay) {
 		RandomPoints pointGen = new RandomPoints(width, height, radius, toUse);
 		PolyChooser choose = new PolyChooser(pointGen.points, radius, width, height);
 		ColorAssigner colorAssign = new ColorAssigner(choose.polys, toUse);
@@ -29,7 +29,7 @@ public class Processor {
 			testDisplay.displayPolys(polys, colors);
 			testDisplay.repaint();
 		}
-		ImageDrawer draw = new ImageDrawer(colors, polys, width, height, fileChoose);
+		ImageDrawer draw = new ImageDrawer(colors, polys, width, height);
 	}
 	
 	
