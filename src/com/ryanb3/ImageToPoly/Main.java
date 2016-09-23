@@ -22,7 +22,7 @@ public class Main {
 	private int width;
 	private int height;
 	Display toDisplay;
-	String currentVersion = "1.0";
+	String currentVersion = "1.01";
 
 	public Main() throws InvocationTargetException, InterruptedException {
 		try {

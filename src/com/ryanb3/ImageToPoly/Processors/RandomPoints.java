@@ -15,6 +15,7 @@ public class RandomPoints {
 	double radius;
 	double possibility = 1;
 	double lowPossibility = .5;
+	int colorDifference = 10;
 	double toSubtract;
 	BufferedImage image;
 	
@@ -41,7 +42,7 @@ public class RandomPoints {
 		Color lastColor = new Color(image.getRGB(0, y));
 		for(int i = 1; i < width; i += radius * Math.random()) {
 			Color thisColor = new Color(image.getRGB(i, y));
-			if(colorDiff(lastColor, thisColor) > 10) {
+			if(colorDiff(lastColor, thisColor) > colorDifference) {
 				Point toAdd = new Point(i, y);
 				points.add(toAdd);
 			}
