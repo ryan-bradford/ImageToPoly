@@ -1,8 +1,8 @@
-package com.ryanb3.ImageToPoly.Test;
+package io.thaumavor.rbradford.ImageToPoly.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
-import com.ryanb3.ImageToPoly.Main;
+import io.thaumavor.rbradford.ImageToPoly.Main;
 
 public class ImageToPoly {
 

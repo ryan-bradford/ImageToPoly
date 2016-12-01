@@ -1,4 +1,4 @@
-package com.ryanb3.ImageToPoly.Display;
+package io.thaumavor.rbradford.ImageToPoly.Display;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

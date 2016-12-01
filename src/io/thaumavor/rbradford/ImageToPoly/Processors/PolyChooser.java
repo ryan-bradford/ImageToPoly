@@ -1,4 +1,4 @@
-package com.ryanb3.ImageToPoly.Processors;
+package io.thaumavor.rbradford.ImageToPoly.Processors;
 
 import java.awt.Point;
 import java.awt.Polygon;

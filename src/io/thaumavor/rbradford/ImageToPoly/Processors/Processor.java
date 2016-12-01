@@ -1,4 +1,4 @@
-package com.ryanb3.ImageToPoly.Processors;
+package io.thaumavor.rbradford.ImageToPoly.Processors;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -7,8 +7,8 @@ import java.awt.Polygon;
 
 import javax.swing.JFileChooser;
 
-import com.ryanb3.ImageToPoly.Display.Display;
-import com.ryanb3.ImageToPoly.FileOutput.ImageDrawer;
+import io.thaumavor.rbradford.ImageToPoly.Display.Display;
+import io.thaumavor.rbradford.ImageToPoly.FileOutput.ImageDrawer;
 
 public class Processor {
 

@@ -1,4 +1,4 @@
-package com.ryanb3.ImageToPoly.FileOutput;
+package io.thaumavor.rbradford.ImageToPoly.FileOutput;
 
 import java.awt.Color;
 import java.awt.EventQueue;
